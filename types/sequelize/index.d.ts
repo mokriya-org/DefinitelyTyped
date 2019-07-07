@@ -3256,6 +3256,21 @@ declare namespace sequelize {
         required?: boolean;
 
         /**
+         * If true, runs a separate query to fetch the associated instances, only supported for hasMany associations
+         */
+        separate?: boolean;
+
+        /**
+         * Specifies an ordering for the joined rows. Only supported with `include.separate=true`.
+         */
+        order?: string | col | literal | Array<string | number | Model<any, any> | { model: Model<any, any>, as?: string }> | Array<string | col | literal | Array<string | number | Model<any, any> | { model: Model<any, any>, as?: string }>>;
+
+        /**
+         * Limit the joined rows. Only supported with `include.separate=true`.
+         */
+        limit?: number;
+
+        /**
          * Through Options
          */
         through?: IncludeThroughOptions;
